@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Runtastic Bodyweight Suite — Push-Ups, Sit-Ups, Squats, Pull-Ups</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#090d16" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', '-apple-system', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: #090d16;
+      color: #f8fafc;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20180%20180%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bgSoberFun%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23142622%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230b1320%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22boltGrad%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23a3e635%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2322c55e%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22180%22%20height%3D%22180%22%20rx%3D%2244%22%20fill%3D%22url%28%23bgSoberFun%29%22/%3E%0A%20%20%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%22168%22%20height%3D%22168%22%20rx%3D%2239%22%20fill%3D%22none%22%20stroke%3D%22%2384cc16%22%20stroke-opacity%3D%220.28%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Cpath%20d%3D%22M101%2034%20L56%2097%20H89%20L79%20146%20L124%2083%20H91%20Z%22%20fill%3D%22url%28%23boltGrad%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%22132%22%20cy%3D%2246%22%20r%3D%226%22%20fill%3D%22%23bef264%22%20fill-opacity%3D%220.85%22/%3E%0A%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20180%20180%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bgSoberFun%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23142622%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230b1320%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22boltGrad%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23a3e635%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2322c55e%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22180%22%20height%3D%22180%22%20rx%3D%2244%22%20fill%3D%22url%28%23bgSoberFun%29%22/%3E%0A%20%20%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%22168%22%20height%3D%22168%22%20rx%3D%2239%22%20fill%3D%22none%22%20stroke%3D%22%2384cc16%22%20stroke-opacity%3D%220.28%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Cpath%20d%3D%22M101%2034%20L56%2097%20H89%20L79%20146%20L124%2083%20H91%20Z%22%20fill%3D%22url%28%23boltGrad%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%22132%22%20cy%3D%2246%22%20r%3D%226%22%20fill%3D%22%23bef264%22%20fill-opacity%3D%220.85%22/%3E%0A%3C/svg%3E" />
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Toast -->
+  <div id="toast-box" class="fixed bottom-5 right-5 left-5 sm:left-auto z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Top App Bar -->
+  <header class="sticky top-0 z-30 bg-[#0d1322]/95 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <button onclick="goHome()" class="flex items-center gap-3 text-left group">
+        <div id="app-logo" class="w-11 h-11 rounded-2xl bg-[#101a28] border border-lime-400/30 flex items-center justify-center shadow-md transition-transform group-active:scale-95">
+          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20180%20180%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bgSoberFun%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23142622%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230b1320%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22boltGrad%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23a3e635%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2322c55e%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22180%22%20height%3D%22180%22%20rx%3D%2244%22%20fill%3D%22url%28%23bgSoberFun%29%22/%3E%0A%20%20%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%22168%22%20height%3D%22168%22%20rx%3D%2239%22%20fill%3D%22none%22%20stroke%3D%22%2384cc16%22%20stroke-opacity%3D%220.28%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Cpath%20d%3D%22M101%2034%20L56%2097%20H89%20L79%20146%20L124%2083%20H91%20Z%22%20fill%3D%22url%28%23boltGrad%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%22132%22%20cy%3D%2246%22%20r%3D%226%22%20fill%3D%22%23bef264%22%20fill-opacity%3D%220.85%22/%3E%0A%3C/svg%3E" alt="RT" class="w-10 h-10 rounded-xl object-cover" />
+        </div>
+        <div>
+          <div id="header-title" class="text-base sm:text-lg font-black tracking-tight text-white leading-none">
+            Runtastic Bodyweight
+          </div>
+          <div id="header-sub" class="text-[11px] font-medium text-slate-400 mt-1">
+            4 applications • Progression continue • Fitness Test • Coach vocal
+          </div>
+        </div>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <button onclick="toggleWakeLockPreference()" id="wakelock-btn" class="px-3 py-2 rounded-xl text-xs font-bold bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 text-slate-200 transition" title="Maintien d'écran allumé pendant l'entraînement">
+          💡 Écran ON
+        </button>
+        <button onclick="toggleVoice()" id="voice-btn" class="px-3 py-2 rounded-xl text-xs font-bold bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 text-slate-200 transition">
+          🔊 Coach Vocal
+        </button>
+        <button id="home-btn" onclick="goHome()" class="hidden px-3 py-2 rounded-xl text-xs font-bold bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 text-slate-200 transition">
+          Apps
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-view" class="max-w-4xl w-full mx-auto px-4 py-5 flex-1 space-y-5"></main>
+
+  <!-- Footer -->
+  <footer class="max-w-4xl w-full mx-auto px-4 py-5 border-t border-slate-900 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+    <span>Progression continue sur 3 niveaux (36 séances), Fitness Test, Wake Lock, historique & réglages.</span>
+    <button onclick="resetAllData()" class="text-rose-400 hover:text-rose-300 underline font-medium">Réinitialiser</button>
+  </footer>
+
+  <script>
+    const BRAND_LOGO_URI = "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20180%20180%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bgSoberFun%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23142622%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230b1320%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22boltGrad%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23a3e635%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2322c55e%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22180%22%20height%3D%22180%22%20rx%3D%2244%22%20fill%3D%22url%28%23bgSoberFun%29%22/%3E%0A%20%20%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%22168%22%20height%3D%22168%22%20rx%3D%2239%22%20fill%3D%22none%22%20stroke%3D%22%2384cc16%22%20stroke-opacity%3D%220.28%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Cpath%20d%3D%22M101%2034%20L56%2097%20H89%20L79%20146%20L124%2083%20H91%20Z%22%20fill%3D%22url%28%23boltGrad%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%22132%22%20cy%3D%2246%22%20r%3D%226%22%20fill%3D%22%23bef264%22%20fill-opacity%3D%220.85%22/%3E%0A%3C/svg%3E";
+
+    const LEVELS_META = {
+      1: { label: 'Niveau 1 • Débutant', short: 'Niv. 1', startSession: 1, endSession: 12, desc: 'Séances 1 à 12 (Semaines 1–4) : fondations et régularité.' },
+      2: { label: 'Niveau 2 • Intermédiaire', short: 'Niv. 2', startSession: 13, endSession: 24, desc: 'Séances 13 à 24 (Semaines 5–8) : montée en volume dans la suite directe.' },
+      3: { label: 'Niveau 3 • Avancé', short: 'Niv. 3', startSession: 25, endSession: 36, desc: 'Séances 25 à 36 (Semaines 9–12) : objectif final de la série Max.' }
+    };
+
+    function buildContinuous36Sessions(startMaxGoal, finalMaxGoal) {
+      const sessions = [];
+      for (let s = 1; s <= 36; s++) {
+        const level = s <= 12 ? 1 : s <= 24 ? 2 : 3;
+        const week = Math.floor((s - 1) / 3) + 1;
+        const dInW = ((s - 1) % 3) + 1;
+
+        const progress = (s - 1) / 35;
+        const curve = Math.pow(progress, 1.15);
+        const maxGoal = Math.max(startMaxGoal, Math.round(startMaxGoal + (finalMaxGoal - startMaxGoal) * curve));
+
+        const s1 = Math.max(1, Math.round(maxGoal * 0.55));
+        const s2 = Math.max(1, Math.round(maxGoal * 0.70));
+        const s3 = Math.max(1, Math.round(maxGoal * 0.50));
+        const s4 = Math.max(1, Math.round(maxGoal * 0.50));
+
+        sessions.push({
+          session: s,
+          level,
+          week,
+          dInW,
+          sets: [s1, s2, s3, s4],
+          maxGoal
+        });
+      }
+      return sessions;
+    }
+
+    const APPS = {
+      pushups: {
+        id: 'pushups',
+        rtName: 'Runtastic Push-Ups',
+        shortName: 'Push-Ups',
+        frName: 'Pompes',
+        badge: 'PUSH-UPS',
+        icon: '💪',
+        accentText: 'text-lime-400',
+        accentBg: 'bg-lime-400',
+        accentSoft: 'bg-lime-400/15 border-lime-400/40 text-lime-300',
+        gradient: 'from-lime-400 to-emerald-500',
+        defaultRestSec: 60,
+        goalLabel: 'Objectif final 100 Max',
+        formCue: 'Corps gainé en planche, coudes à ~45°, poitrine proche du sol sans creuser les lombaires.',
+        testThresholds: [
+          { max: 8,  startSession: 1,  plan: 'Séance 1 (Niv. 1 • Débutant)' },
+          { max: 20, startSession: 9,  plan: 'Séance 9 (Niv. 1 • Semaine 3)' },
+          { max: 35, startSession: 15, plan: 'Séance 15 (Niv. 2 • Suite)' },
+          { max: 55, startSession: 25, plan: 'Séance 25 (Niv. 3 • Suite)' },
+          { max: 999, startSession: 31, plan: 'Séance 31 (Niv. 3 • Vers 100)' }
+        ],
+        sessions: buildContinuous36Sessions(3, 100)
+      },
+      situps: {
+        id: 'situps',
+        rtName: 'Runtastic Sit-Ups',
+        shortName: 'Sit-Ups',
+        frName: 'Abdos (Sit-Ups)',
+        badge: 'SIT-UPS',
+        icon: '🔥',
+        accentText: 'text-amber-400',
+        accentBg: 'bg-amber-400',
+        accentSoft: 'bg-amber-400/15 border-amber-400/40 text-amber-300',
+        gradient: 'from-amber-400 to-orange-500',
+        defaultRestSec: 60,
+        goalLabel: 'Objectif final 100 Max',
+        formCue: 'Expiration en montant, contrôle de la descente vertèbre après vertèbre, sans tirer sur la nuque.',
+        testThresholds: [
+          { max: 12, startSession: 1,  plan: 'Séance 1 (Niv. 1 • Débutant)' },
+          { max: 28, startSession: 9,  plan: 'Séance 9 (Niv. 1 • Semaine 3)' },
+          { max: 45, startSession: 15, plan: 'Séance 15 (Niv. 2 • Suite)' },
+          { max: 65, startSession: 25, plan: 'Séance 25 (Niv. 3 • Suite)' },
+          { max: 999, startSession: 31, plan: 'Séance 31 (Niv. 3 • Vers 100)' }
+        ],
+        sessions: buildContinuous36Sessions(5, 100)
+      },
+      squats: {
+        id: 'squats',
+        rtName: 'Runtastic Squats',
+        shortName: 'Squats',
+        frName: 'Squats',
+        badge: 'SQUATS',
+        icon: '🦵',
+        accentText: 'text-sky-400',
+        accentBg: 'bg-sky-400',
+        accentSoft: 'bg-sky-400/15 border-sky-400/40 text-sky-300',
+        gradient: 'from-sky-400 to-cyan-500',
+        defaultRestSec: 60,
+        goalLabel: 'Objectif final 100 Max',
+        formCue: 'Hanches vers l’arrière et le bas, genoux alignés avec les pointes de pieds, poussée ferme sur tout le pied.',
+        testThresholds: [
+          { max: 15, startSession: 1,  plan: 'Séance 1 (Niv. 1 • Débutant)' },
+          { max: 35, startSession: 9,  plan: 'Séance 9 (Niv. 1 • Semaine 3)' },
+          { max: 55, startSession: 15, plan: 'Séance 15 (Niv. 2 • Suite)' },
+          { max: 75, startSession: 25, plan: 'Séance 25 (Niv. 3 • Suite)' },
+          { max: 999, startSession: 31, plan: 'Séance 31 (Niv. 3 • Vers 100)' }
+        ],
+        sessions: buildContinuous36Sessions(8, 100)
+      },
+      pullups: {
+        id: 'pullups',
+        rtName: 'Runtastic Pull-Ups',
+        shortName: 'Pull-Ups',
+        frName: 'Tractions (Pull-Ups)',
+        badge: 'PULL-UPS',
+        icon: '🧗',
+        accentText: 'text-rose-400',
+        accentBg: 'bg-rose-400',
+        accentSoft: 'bg-rose-400/15 border-rose-400/40 text-rose-300',
+        gradient: 'from-rose-400 to-pink-500',
+        defaultRestSec: 90,
+        goalLabel: 'Objectif final 20 Max',
+        formCue: 'Épaules engagées vers le bas, menton au-dessus de la barre sans balancer les jambes, descente contrôlée.',
+        testThresholds: [
+          { max: 3,  startSession: 1,  plan: 'Séance 1 (Niv. 1 • Débutant)' },
+          { max: 7,  startSession: 9,  plan: 'Séance 9 (Niv. 1 • Semaine 3)' },
+          { max: 11, startSession: 15, plan: 'Séance 15 (Niv. 2 • Suite)' },
+          { max: 15, startSession: 25, plan: 'Séance 25 (Niv. 3 • Suite)' },
+          { max: 999, startSession: 31, plan: 'Séance 31 (Niv. 3 • Vers 20)' }
+        ],
+        sessions: buildContinuous36Sessions(2, 20)
+      }
+    };
+
+    const STORAGE_KEY = 'runtastic_bodyweight_suite_progressive_v3';
+
+    function freshAppState(appId = null) {
+      const defaultRest = appId && APPS[appId] ? APPS[appId].defaultRestSec : 60;
+      return {
+        currentSession: 1,
+        viewedLevel: 1,
+        restSec: defaultRest,
+        bestMax: 0,
+        totalReps: 0,
+        workoutsDone: 0,
+        lastTest: null,
+        completedSessions: {},
+        history: []
+      };
+    }
+
+    function getLevelForSession(sessionNum) {
+      if (sessionNum <= 12) return 1;
+      if (sessionNum <= 24) return 2;
+      return 3;
+    }
+
+    function getRestSecForApp(appId) {
+      const app = APPS[appId];
+      const u = db.apps[appId];
+      const val = parseInt(u && u.restSec, 10);
+      if (Number.isFinite(val) && val >= 15 && val <= 300) return val;
+      return app ? app.defaultRestSec : 60;
+    }
+
+    let db = {
+      activeApp: null,
+      screen: 'hub',
+      voiceEnabled: true,
+      voiceRate: 1.05,
+      voiceVolume: 1.0,
+      wakeLockEnabled: true,
+      apps: {
+        pushups: freshAppState('pushups'),
+        situps: freshAppState('situps'),
+        squats: freshAppState('squats'),
+        pullups: freshAppState('pullups')
+      }
+    };
+
+    let runner = {
+      appId: null,
+      sessionNum: 1,
+      setIndex: 0,
+      repsInput: 0,
+      completedSetReps: [],
+      phase: 'work',
+      restLeft: 60,
+      restTotal: 60,
+      intervalId: null,
+      lastResult: null
+    };
+
+    // Screen Wake Lock management
+    let wakeLockSentinel = null;
+    let wakeLockActive = false;
+
+    function isWakeLockSupported() {
+      return typeof navigator !== 'undefined' && 'wakeLock' in navigator && typeof navigator.wakeLock.request === 'function';
+    }
+
+    function updateWakeLockBadge() {
+      const btn = document.getElementById('wakelock-btn');
+      if (!btn) return;
+      if (!db.wakeLockEnabled) {
+        btn.textContent = '💡 Écran OFF';
+        btn.className = 'px-3 py-2 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 transition';
+      } else if (wakeLockActive) {
+        btn.textContent = '💡 Écran ON';
+        btn.className = 'px-3 py-2 rounded-xl text-xs font-bold bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-400/40 text-emerald-300 transition';
+      } else {
+        btn.textContent = isWakeLockSupported() ? '💡 Veille Auto' : '💡 Écran (Auto)';
+        btn.className = 'px-3 py-2 rounded-xl text-xs font-bold bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 text-slate-200 transition';
+      }
+    }
+
+    async function requestScreenWakeLock(silent = false) {
+      if (!db.wakeLockEnabled) return false;
+      if (!isWakeLockSupported()) {
+        wakeLockActive = false;
+        updateWakeLockBadge();
+        return false;
+      }
+      if (document.visibilityState !== 'visible') return false;
+      try {
+        if (wakeLockSentinel && !wakeLockSentinel.released) {
+          wakeLockActive = true;
+          updateWakeLockBadge();
+          return true;
+        }
+        wakeLockSentinel = await navigator.wakeLock.request('screen');
+        wakeLockActive = true;
+        wakeLockSentinel.addEventListener('release', () => {
+          wakeLockActive = false;
+          wakeLockSentinel = null;
+          updateWakeLockBadge();
+        });
+        updateWakeLockBadge();
+        return true;
+      } catch (err) {
+        wakeLockActive = false;
+        wakeLockSentinel = null;
+        updateWakeLockBadge();
+        if (!silent) {
+          toast('💡 Maintien d’écran indisponible dans ce contexte.');
+        }
+        return false;
+      }
+    }
+
+    async function releaseScreenWakeLock() {
+      wakeLockActive = false;
+      if (wakeLockSentinel) {
+        try {
+          await wakeLockSentinel.release();
+        } catch (err) {}
+        wakeLockSentinel = null;
+      }
+      updateWakeLockBadge();
+    }
+
+    function syncWakeLockWithScreen() {
+      const shouldLock = db.wakeLockEnabled && (db.screen === 'runner' || db.screen === 'test');
+      if (shouldLock) {
+        requestScreenWakeLock(true);
+      } else {
+        releaseScreenWakeLock();
+      }
+    }
+
+    async function toggleWakeLockPreference() {
+      haptic('light');
+      db.wakeLockEnabled = !db.wakeLockEnabled;
+      saveDB();
+      if (db.wakeLockEnabled) {
+        const ok = await requestScreenWakeLock(false);
+        toast(ok ? '💡 Maintien d’écran allumé activé' : '💡 Maintien d’écran activé (actif en séance)');
+      } else {
+        await releaseScreenWakeLock();
+        toast('💡 Maintien d’écran allumé désactivé');
+      }
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        syncWakeLockWithScreen();
+      } else {
+        wakeLockActive = false;
+        updateWakeLockBadge();
+      }
+    });
+
+    function registerOfflineServiceWorker() {
+      if (!('serviceWorker' in navigator)) return;
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') return;
+      const swCode = `
+        const CACHE_NAME = 'rt-bodyweight-v3';
+        self.addEventListener('install', (e) => {
+          e.waitUntil(self.skipWaiting());
+        });
+        self.addEventListener('activate', (e) => {
+          e.waitUntil(
+            caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))))
+              .then(() => self.clients.claim())
+          );
+        });
+        self.addEventListener('fetch', (e) => {
+          if (e.request.method !== 'GET') return;
+          e.respondWith(
+            caches.match(e.request).then((cached) => {
+              const networkFetch = fetch(e.request).then((res) => {
+                if (res && res.status === 200 && res.type !== 'opaque') {
+                  const clone = res.clone();
+                  caches.open(CACHE_NAME).then((c) => c.put(e.request, clone)).catch(() => {});
+                }
+                return res;
+              }).catch(() => cached);
+              return cached || networkFetch;
+            })
+          );
+        });
+      `;
+      const blob = new Blob([swCode], { type: 'application/javascript' });
+      const swUrl = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(swUrl).catch(() => {});
+    }
+
+    function loadDB() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('runtastic_bodyweight_suite_progressive_v2');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          db.voiceEnabled = parsed.voiceEnabled !== undefined ? parsed.voiceEnabled : true;
+          const rateNum = parseFloat(parsed.voiceRate);
+          db.voiceRate = Number.isFinite(rateNum) ? Math.min(1.5, Math.max(0.7, rateNum)) : 1.05;
+          const volNum = parseFloat(parsed.voiceVolume);
+          db.voiceVolume = Number.isFinite(volNum) ? Math.min(1.0, Math.max(0.1, volNum)) : 1.0;
+          db.wakeLockEnabled = parsed.wakeLockEnabled !== undefined ? parsed.wakeLockEnabled : true;
+          Object.keys(APPS).forEach(k => {
+            if (parsed.apps && parsed.apps[k]) {
+              const base = freshAppState(k);
+              db.apps[k] = {
+                ...base,
+                ...parsed.apps[k],
+                restSec: Number.isFinite(parseInt(parsed.apps[k].restSec, 10)) ? parseInt(parsed.apps[k].restSec, 10) : base.restSec,
+                completedSessions: { ...(parsed.apps[k].completedSessions || {}) },
+                history: Array.isArray(parsed.apps[k].history) ? parsed.apps[k].history : []
+              };
+            }
+          });
+        }
+      } catch (e) {}
+    }
+
+    function saveDB() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          voiceEnabled: db.voiceEnabled,
+          voiceRate: db.voiceRate,
+          voiceVolume: db.voiceVolume,
+          wakeLockEnabled: db.wakeLockEnabled,
+          apps: db.apps
+        }));
+      } catch (e) {}
+    }
+
+    function speak(text) {
+      if (!db.voiceEnabled) return;
+      try {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = 'fr-FR';
+          u.rate = db.voiceRate;
+          u.volume = db.voiceVolume;
+          window.speechSynthesis.speak(u);
+        }
+      } catch (e) {}
+    }
+
+    function updateAppRestSetting(appId, deltaOrVal) {
+      const u = db.apps[appId];
+      const cur = getRestSecForApp(appId);
+      const next = typeof deltaOrVal === 'string' && deltaOrVal === 'reset'
+        ? APPS[appId].defaultRestSec
+        : Math.min(240, Math.max(15, cur + deltaOrVal));
+      u.restSec = next;
+      saveDB();
+      haptic('light');
+      render();
+      toast(`⏱️ Repos ${APPS[appId].shortName} : ${next}s`);
+    }
+
+    function updateVoiceRate(val) {
+      const parsed = parseFloat(val);
+      if (!Number.isFinite(parsed)) return;
+      db.voiceRate = Math.min(1.5, Math.max(0.7, parsed));
+      saveDB();
+      const lbl = document.getElementById('voice-rate-val');
+      if (lbl) lbl.textContent = `${db.voiceRate.toFixed(2)}x`;
+    }
+
+    function updateVoiceVolume(val) {
+      const parsed = parseFloat(val);
+      if (!Number.isFinite(parsed)) return;
+      db.voiceVolume = Math.min(1.0, Math.max(0.1, parsed));
+      saveDB();
+      const lbl = document.getElementById('voice-vol-val');
+      if (lbl) lbl.textContent = `${Math.round(db.voiceVolume * 100)}%`;
+    }
+
+    function testVoiceSettings() {
+      haptic('light');
+      speak(`Coach vocal réglé à ${db.voiceRate.toFixed(2)} de vitesse et ${Math.round(db.voiceVolume * 100)} pour cent de volume.`);
+    }
+
+    function chime() {
+      try {
+        if (typeof Tone !== 'undefined') {
+          Tone.start();
+          const synth = new Tone.Synth({
+            oscillator: { type: 'triangle' },
+            envelope: { attack: 0.01, decay: 0.14, sustain: 0.1, release: 0.25 }
+          }).toDestination();
+          const now = Tone.now();
+          synth.triggerAttackRelease('C5', '16n', now);
+          synth.triggerAttackRelease('G5', '8n', now + 0.14);
+        }
+      } catch (e) {}
+    }
+
+    function haptic(pattern = 'light') {
+      try {
+        if (!('vibrate' in navigator)) return;
+        if (pattern === 'light') navigator.vibrate(12);
+        else if (pattern === 'medium') navigator.vibrate(25);
+        else if (pattern === 'success') navigator.vibrate([25, 40, 45]);
+        else if (pattern === 'alert') navigator.vibrate([40, 30, 40]);
+      } catch (e) {}
+    }
+
+    function toast(msg) {
+      const box = document.getElementById('toast-box');
+      const el = document.createElement('div');
+      el.className = 'bg-slate-800/95 border border-slate-600/70 text-white px-4 py-3 rounded-2xl shadow-2xl text-xs sm:text-sm font-semibold';
+      el.textContent = msg;
+      box.appendChild(el);
+      setTimeout(() => el.remove(), 2900);
+    }
+
+    function toggleVoice() {
+      haptic('light');
+      db.voiceEnabled = !db.voiceEnabled;
+      saveDB();
+      updateHeader();
+      toast(db.voiceEnabled ? '🔊 Coach vocal activé' : '🔇 Coach vocal désactivé');
+    }
+
+    function goHome() {
+      stopRestTimer();
+      db.activeApp = null;
+      db.screen = 'hub';
+      render();
+    }
+
+    function openApp(appId) {
+      stopRestTimer();
+      db.activeApp = appId;
+      db.apps[appId].viewedLevel = getLevelForSession(db.apps[appId].currentSession);
+      db.screen = 'app';
+      render();
+    }
+
+    function viewLevel(appId, lvl) {
+      db.apps[appId].viewedLevel = lvl;
+      saveDB();
+      render();
+    }
+
+    function openFitnessTest(appId) {
+      stopRestTimer();
+      db.activeApp = appId;
+      db.screen = 'test';
+      render();
+    }
+
+    function saveFitnessTest(appId) {
+      const input = document.getElementById('test-max-input');
+      if (!input) return;
+      const reps = Math.max(0, parseInt(input.value, 10) || 0);
+      const app = APPS[appId];
+      const match = app.testThresholds.find(t => reps <= t.max) || app.testThresholds[app.testThresholds.length - 1];
+      const targetLevel = getLevelForSession(match.startSession);
+
+      const userApp = db.apps[appId];
+      const nowLabel = new Date().toLocaleDateString('fr-FR');
+      userApp.lastTest = {
+        reps,
+        startSession: match.startSession,
+        plan: match.plan,
+        date: nowLabel
+      };
+      userApp.currentSession = match.startSession;
+      userApp.viewedLevel = targetLevel;
+      if (reps > userApp.bestMax) userApp.bestMax = reps;
+      userApp.history.unshift({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        type: 'test',
+        date: nowLabel,
+        time: new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }),
+        reps,
+        startSession: match.startSession,
+        plan: match.plan
+      });
+      if (userApp.history.length > 40) userApp.history.length = 40;
+
+      haptic('success');
+      saveDB();
+      speak(`Fitness Test validé avec ${reps} répétitions. Départ à la séance ${match.startSession}, niveau ${targetLevel}.`);
+      toast(`🧪 ${match.plan}`);
+      db.screen = 'app';
+      render();
+    }
+
+    function startWorkout(appId, sessionNum) {
+      stopRestTimer();
+      const app = APPS[appId];
+      const sessObj = app.sessions.find(s => s.session === sessionNum) || app.sessions[0];
+      const firstTarget = sessObj.sets[0];
+      const restSec = getRestSecForApp(appId);
+
+      runner = {
+        appId,
+        sessionNum: sessObj.session,
+        setIndex: 0,
+        repsInput: firstTarget,
+        completedSetReps: [],
+        phase: 'work',
+        restLeft: restSec,
+        restTotal: restSec,
+        intervalId: null,
+        lastResult: null
+      };
+      db.activeApp = appId;
+      db.screen = 'runner';
+      render();
+      requestScreenWakeLock(true);
+      speak(`${app.rtName}. Niveau ${sessObj.level}, Séance ${sessObj.session}, Semaine ${sessObj.week}, Jour ${sessObj.dInW}. Série 1, objectif ${firstTarget} répétitions.`);
+    }
+
+    function adjustRunnerReps(delta) {
+      haptic('light');
+      runner.repsInput = Math.max(0, (parseInt(runner.repsInput, 10) || 0) + delta);
+      const el = document.getElementById('runner-reps-val');
+      if (el) el.textContent = runner.repsInput;
+    }
+
+    function completeCurrentSet() {
+      const app = APPS[runner.appId];
+      const sessObj = app.sessions.find(s => s.session === runner.sessionNum) || app.sessions[0];
+      const inputEl = document.getElementById('runner-reps-val');
+      const doneReps = inputEl ? Math.max(0, parseInt(inputEl.textContent, 10) || 0) : runner.repsInput;
+      const restSec = getRestSecForApp(app.id);
+
+      runner.completedSetReps.push(doneReps);
+
+      if (runner.setIndex === 4) {
+        finishWorkoutSession(app, sessObj, doneReps);
+        return;
+      }
+
+      const nextSetIdx = runner.setIndex + 1;
+      const nextTarget = nextSetIdx === 4 ? `Max (objectif ${sessObj.maxGoal}+)` : `${sessObj.sets[nextSetIdx]} reps`;
+
+      haptic('medium');
+      runner.phase = 'rest';
+      runner.restTotal = restSec;
+      runner.restLeft = restSec;
+      render();
+      speak(`Série ${runner.setIndex + 1} terminée. Repos ${restSec} secondes. Prochaine série : ${nextTarget}.`);
+
+      runner.intervalId = setInterval(() => {
+        runner.restLeft -= 1;
+        if (runner.restLeft === 15) speak('15 secondes de repos restantes.');
+        if (runner.restLeft <= 0) {
+          stopRestTimer();
+          haptic('alert');
+          chime();
+          runner.setIndex += 1;
+          runner.phase = 'work';
+          runner.repsInput = runner.setIndex === 4 ? sessObj.maxGoal : sessObj.sets[runner.setIndex];
+          render();
+          speak(`Repos terminé ! Série ${runner.setIndex + 1}.`);
+        } else {
+          const cd = document.getElementById('rest-countdown');
+          const bar = document.getElementById('rest-bar');
+          if (cd) cd.textContent = `${runner.restLeft}s`;
+          if (bar) bar.style.width = `${Math.max(0, Math.min(100, (runner.restLeft / runner.restTotal) * 100))}%`;
+        }
+      }, 1000);
+    }
+
+    function skipRestNow() {
+      stopRestTimer();
+      const app = APPS[runner.appId];
+      const sessObj = app.sessions.find(s => s.session === runner.sessionNum) || app.sessions[0];
+      runner.setIndex += 1;
+      runner.phase = 'work';
+      runner.repsInput = runner.setIndex === 4 ? sessObj.maxGoal : sessObj.sets[runner.setIndex];
+      render();
+      speak(`Série ${runner.setIndex + 1}.`);
+    }
+
+    function stopRestTimer() {
+      if (runner.intervalId) {
+        clearInterval(runner.intervalId);
+        runner.intervalId = null;
+      }
+    }
+
+    function finishWorkoutSession(app, sessObj, maxRepsDone) {
+      stopRestTimer();
+      const userApp = db.apps[app.id];
+      const setBreakdown = [...runner.completedSetReps];
+      const sessionTotalReps = setBreakdown.reduce((a, b) => a + b, 0);
+      const passedGoal = maxRepsDone >= sessObj.maxGoal;
+      const prevLevel = getLevelForSession(userApp.currentSession);
+
+      userApp.totalReps += sessionTotalReps;
+      userApp.workoutsDone += 1;
+      if (maxRepsDone > userApp.bestMax) userApp.bestMax = maxRepsDone;
+      userApp.completedSessions[sessObj.session] = true;
+
+      let leveledUpTo = null;
+      if (passedGoal && sessObj.session < 36) {
+        userApp.currentSession = Math.max(userApp.currentSession, sessObj.session + 1);
+        const newLevel = getLevelForSession(userApp.currentSession);
+        if (newLevel > prevLevel) {
+          leveledUpTo = newLevel;
+          userApp.viewedLevel = newLevel;
+        }
+      }
+
+      userApp.history.unshift({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        type: 'workout',
+        date: new Date().toLocaleDateString('fr-FR'),
+        time: new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }),
+        session: sessObj.session,
+        level: sessObj.level,
+        week: sessObj.week,
+        dInW: sessObj.dInW,
+        sets: setBreakdown,
+        totalReps: sessionTotalReps,
+        maxReps: maxRepsDone,
+        maxGoal: sessObj.maxGoal,
+        passed: passedGoal
+      });
+      if (userApp.history.length > 40) userApp.history.length = 40;
+
+      saveDB();
+      haptic('success');
+      chime();
+
+      runner.phase = 'summary';
+      runner.lastResult = {
+        sets: setBreakdown,
+        totalReps: sessionTotalReps,
+        maxReps: maxRepsDone,
+        maxGoal: sessObj.maxGoal,
+        passed: passedGoal,
+        leveledUpTo
+      };
+      render();
+      const levelMsg = leveledUpTo ? ` Bravo, tu passes au niveau ${leveledUpTo} !` : '';
+      speak(`Séance ${sessObj.session} terminée ! ${sessionTotalReps} répétitions au total, maximum ${maxRepsDone}.${levelMsg}`);
+    }
+
+    function resetAllData() {
+      if (!confirm('Effacer toute la progression continue, les Fitness Tests, l’historique et les réglages ?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem('runtastic_bodyweight_suite_progressive_v2');
+      stopRestTimer();
+      releaseScreenWakeLock();
+      db = {
+        activeApp: null,
+        screen: 'hub',
+        voiceEnabled: true,
+        voiceRate: 1.05,
+        voiceVolume: 1.0,
+        wakeLockEnabled: true,
+        apps: {
+          pushups: freshAppState('pushups'),
+          situps: freshAppState('situps'),
+          squats: freshAppState('squats'),
+          pullups: freshAppState('pullups')
+        }
+      };
+      render();
+      toast('Données réinitialisées.');
+    }
+
+    function updateHeader() {
+      const logo = document.getElementById('app-logo');
+      const title = document.getElementById('header-title');
+      const sub = document.getElementById('header-sub');
+      const voiceBtn = document.getElementById('voice-btn');
+      const homeBtn = document.getElementById('home-btn');
+
+      voiceBtn.textContent = db.voiceEnabled ? '🔊 Coach Vocal' : '🔇 Voix OFF';
+      homeBtn.classList.toggle('hidden', db.screen === 'hub');
+      updateWakeLockBadge();
+
+      if (!db.activeApp || db.screen === 'hub') {
+        logo.className = 'w-11 h-11 rounded-2xl bg-[#101a28] border border-lime-400/30 flex items-center justify-center shadow-md';
+        logo.innerHTML = `<img src="${BRAND_LOGO_URI}" alt="RT" class="w-10 h-10 rounded-xl object-cover" />`;
+        title.textContent = 'Runtastic Bodyweight';
+        sub.textContent = '4 applications • Progression continue • Fitness Test • Wake Lock';
+      } else {
+        const app = APPS[db.activeApp];
+        const curLvl = getLevelForSession(db.apps[app.id].currentSession);
+        const restSec = getRestSecForApp(app.id);
+        logo.className = `w-11 h-11 rounded-2xl bg-gradient-to-br ${app.gradient} flex items-center justify-center text-slate-950 font-black text-xl shadow-md`;
+        logo.textContent = app.icon;
+        title.textContent = app.rtName;
+        sub.textContent = `Séance ${db.apps[app.id].currentSession}/36 • Niveau ${curLvl} • Repos ${restSec}s`;
+      }
+    }
+
+    function render() {
+      updateHeader();
+      syncWakeLockWithScreen();
+      const main = document.getElementById('main-view');
+      if (db.screen === 'hub' || !db.activeApp) renderHub(main);
+      else if (db.screen === 'app') renderAppDashboard(main, db.activeApp);
+      else if (db.screen === 'test') renderFitnessTestScreen(main, db.activeApp);
+      else if (db.screen === 'runner') renderRunnerScreen(main);
+    }
+
+    function renderHub(main) {
+      const totalAllReps = Object.values(db.apps).reduce((acc, a) => acc + a.totalReps, 0);
+      const totalAllWorkouts = Object.values(db.apps).reduce((acc, a) => acc + a.workoutsDone, 0);
+
+      main.innerHTML = `
+        <section class="rounded-3xl bg-gradient-to-br from-[#131c31] to-[#0e1525] border border-slate-800/90 p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-lime-400">⚡ Suite Runtastic • Objectifs Finaux 100 / 20</div>
+            <h1 class="text-xl sm:text-2xl font-black text-white mt-1">Choisis ton application d'entraînement</h1>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">Progression continue sur 3 niveaux (36 séances) jusqu'à 100 Max (Push-Ups, Sit-Ups, Squats) et 20 Max (Pull-Ups).</p>
+          </div>
+          <div class="flex gap-3">
+            <div class="px-4 py-2.5 rounded-2xl bg-slate-950/70 border border-slate-800 text-center">
+              <div class="text-lg font-black text-white">${totalAllReps}</div>
+              <div class="text-[11px] text-slate-400">Reps cumulées</div>
+            </div>
+            <div class="px-4 py-2.5 rounded-2xl bg-slate-950/70 border border-slate-800 text-center">
+              <div class="text-lg font-black text-lime-400">${totalAllWorkouts}</div>
+              <div class="text-[11px] text-slate-400">Séances</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          ${Object.values(APPS).map(app => {
+            const u = db.apps[app.id];
+            const curLvl = getLevelForSession(u.currentSession);
+            const finalGoal = app.sessions[app.sessions.length - 1].maxGoal;
+            return `
+              <div class="rounded-3xl bg-[#111827] border border-slate-800 p-5 flex flex-col justify-between space-y-4 hover:border-slate-700 transition">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-1 rounded-lg text-[11px] font-black tracking-wider border ${app.accentSoft}">${app.badge}</span>
+                    <span class="text-xs font-bold ${app.accentText}">Max final : ${finalGoal}</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br ${app.gradient} flex items-center justify-center text-2xl shadow-md">${app.icon}</div>
+                    <div>
+                      <h2 class="text-lg font-black text-white">${app.rtName}</h2>
+                      <p class="text-xs text-slate-400">${LEVELS_META[curLvl].label} • Séance ${u.currentSession}/36</p>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2 pt-1 text-center">
+                    <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                      <div class="text-sm font-black text-white">${u.bestMax}</div>
+                      <div class="text-[10px] text-slate-400">Record Max</div>
+                    </div>
+                    <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                      <div class="text-sm font-black text-white">${u.totalReps}</div>
+                      <div class="text-[10px] text-slate-400">Total Reps</div>
+                    </div>
+                    <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                      <div class="text-sm font-black text-white">${Object.keys(u.completedSessions).length}/36</div>
+                      <div class="text-[10px] text-slate-400">Séances OK</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                  <button onclick="openFitnessTest('${app.id}')" class="py-2.5 px-3 rounded-xl text-xs font-extrabold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                    🧪 Fitness Test
+                  </button>
+                  <button onclick="openApp('${app.id}')" class="py-2.5 px-3 rounded-xl text-xs font-black bg-gradient-to-r ${app.gradient} text-slate-950 hover:opacity-95 transition shadow">
+                    Ouvrir l'App →
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </section>
+
+        <section class="rounded-3xl bg-[#111827] border border-slate-800 p-5 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-black uppercase tracking-wider text-slate-200">🎙️ Réglages Coach Vocal</h3>
+              <p class="text-xs text-slate-400 mt-0.5">Ajuste le débit et le volume de la synthèse vocale avant ou pendant tes séances.</p>
+            </div>
+            <button onclick="testVoiceSettings()" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+              ▶ Tester la voix
+            </button>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <label for="voice-rate-slider" class="font-bold text-slate-300">Vitesse de parole</label>
+                <span id="voice-rate-val" class="font-black text-lime-400 tabular-nums">${db.voiceRate.toFixed(2)}x</span>
+              </div>
+              <input id="voice-rate-slider" type="range" min="0.7" max="1.5" step="0.05" value="${db.voiceRate}" oninput="updateVoiceRate(this.value)" class="w-full accent-lime-400 cursor-pointer" />
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <label for="voice-vol-slider" class="font-bold text-slate-300">Volume vocal</label>
+                <span id="voice-vol-val" class="font-black text-lime-400 tabular-nums">${Math.round(db.voiceVolume * 100)}%</span>
+              </div>
+              <input id="voice-vol-slider" type="range" min="0.1" max="1" step="0.05" value="${db.voiceVolume}" oninput="updateVoiceVolume(this.value)" class="w-full accent-lime-400 cursor-pointer" />
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderAppDashboard(main, appId) {
+      const app = APPS[appId];
+      const u = db.apps[appId];
+      const activeSessObj = app.sessions.find(s => s.session === u.currentSession) || app.sessions[0];
+      const viewLvl = u.viewedLevel || getLevelForSession(u.currentSession);
+      const lvlMeta = LEVELS_META[viewLvl];
+      const lvlSessions = app.sessions.filter(s => s.level === viewLvl);
+      const restSec = getRestSecForApp(appId);
+
+      main.innerHTML = `
+        <section class="rounded-3xl bg-[#111827] border border-slate-800 p-5 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <span class="px-2.5 py-1 rounded-lg text-[11px] font-black tracking-wider border ${app.accentSoft}">${app.rtName} • ${app.goalLabel}</span>
+              <h2 class="text-xl sm:text-2xl font-black text-white mt-2">
+                Séance ${activeSessObj.session}/36 • Niveau ${activeSessObj.level} (Semaine ${activeSessObj.week}, Jour ${activeSessObj.dInW})
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                ${u.lastTest ? `Dernier Fitness Test : ${u.lastTest.reps} reps (${u.lastTest.plan})` : `Objectif de la série Max à la séance 36 : ${app.sessions[35].maxGoal} répétitions.`}
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="openFitnessTest('${app.id}')" class="px-3.5 py-2.5 rounded-xl text-xs font-extrabold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                🧪 Fitness Test
+              </button>
+              <button onclick="startWorkout('${app.id}', ${activeSessObj.session})" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-gradient-to-r ${app.gradient} text-slate-950 shadow-lg hover:opacity-95 transition">
+                ▶ Lancer Séance ${activeSessObj.session}
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2">
+            ${[1, 2, 3].map(n => {
+              const selected = n === viewLvl;
+              const currentBadge = getLevelForSession(u.currentSession) === n;
+              return `
+                <button onclick="viewLevel('${app.id}', ${n})" class="p-3 rounded-2xl border text-left transition ${selected ? 'bg-slate-900 border-white' : 'bg-slate-950/60 border-slate-800 hover:border-slate-700'}">
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-xs font-black ${selected ? app.accentText : 'text-white'}">Niveau ${n}</span>
+                    ${currentBadge ? `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 ${app.accentText}">Actuel</span>` : ''}
+                  </div>
+                  <div class="text-[11px] text-slate-400 mt-0.5">Séances ${LEVELS_META[n].startSession}–${LEVELS_META[n].endSession}</div>
+                </button>
+              `;
+            }).join('')}
+          </div>
+
+          <div class="p-3 rounded-2xl bg-slate-950/50 border border-slate-800/80 text-xs text-slate-300">
+            🎯 <strong>${lvlMeta.label} :</strong> ${lvlMeta.desc}
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div class="text-xs font-extrabold text-white">⏱️ Temps de repos (${app.shortName})</div>
+              <div class="text-[11px] text-slate-400">Par défaut : ${app.defaultRestSec}s • Réglable de 15s à 240s</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="updateAppRestSetting('${app.id}', -5)" class="px-2.5 py-1.5 rounded-xl text-xs font-black bg-slate-800 hover:bg-slate-700 text-white transition">−5s</button>
+              <span class="px-3 py-1.5 rounded-xl text-xs font-black bg-slate-900 border border-slate-700 ${app.accentText} tabular-nums">${restSec}s</span>
+              <button onclick="updateAppRestSetting('${app.id}', 5)" class="px-2.5 py-1.5 rounded-xl text-xs font-black bg-slate-800 hover:bg-slate-700 text-white transition">+5s</button>
+              ${restSec !== app.defaultRestSec ? `<button onclick="updateAppRestSetting('${app.id}', 'reset')" class="px-2.5 py-1.5 rounded-xl text-[11px] font-bold text-slate-400 hover:text-white underline">Défaut</button>` : ''}
+            </div>
+          </div>
+        </section>
+
+        <section class="rounded-3xl bg-[#111827] border border-slate-800 p-5 space-y-3.5">
+          <h3 class="text-sm font-black uppercase tracking-wider text-slate-300">
+            ${lvlMeta.label} — Séances ${lvlMeta.startSession} à ${lvlMeta.endSession}
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+            ${lvlSessions.map(s => {
+              const isDone = !!u.completedSessions[s.session];
+              const isCurrent = s.session === u.currentSession;
+              return `
+                <div class="flex items-center justify-between gap-2 p-3 rounded-2xl border ${isCurrent ? 'border-slate-500 bg-slate-900' : 'border-slate-800/70 bg-slate-950/50'}">
+                  <div>
+                    <div class="text-xs font-extrabold text-white flex items-center gap-1.5">
+                      <span>Séance ${s.session} (Sem. ${s.week} • J${s.dInW})</span>
+                      ${isDone ? '<span class="text-emerald-400 text-[11px]">✓ Fait</span>' : ''}
+                      ${isCurrent ? `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 ${app.accentText}">En cours</span>` : ''}
+                    </div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">
+                      ${s.sets.join(' • ')} • <strong>Max (obj. ${s.maxGoal}+)</strong>
+                    </div>
+                  </div>
+                  <button onclick="startWorkout('${app.id}', ${s.session})" class="shrink-0 px-3 py-1.5 rounded-xl text-xs font-extrabold bg-slate-800 hover:bg-slate-700 text-white transition">
+                    Go
+                  </button>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </section>
+
+        <section class="rounded-3xl bg-[#111827] border border-slate-800 p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-black uppercase tracking-wider text-slate-300">📜 Historique détaillé — ${app.shortName}</h3>
+            <span class="text-[11px] text-slate-400">${u.history.length} entrée(s)</span>
+          </div>
+          ${u.history.length === 0
+            ? `<div class="p-4 rounded-2xl bg-slate-950/50 border border-slate-800/70 text-xs text-slate-400">Aucune séance ou test enregistré pour l'instant.</div>`
+            : `<div class="space-y-2 max-h-72 overflow-y-auto no-scrollbar pr-0.5">
+                ${u.history.map(item => {
+                  if (item.type === 'test') {
+                    return `
+                      <div class="p-3 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs">
+                        <div>
+                          <span class="font-black ${app.accentText}">🧪 Fitness Test</span>
+                          <span class="text-slate-400 ml-1.5">${item.date} ${item.time ? '• ' + item.time : ''}</span>
+                          <div class="text-slate-300 mt-0.5">Score : <strong>${item.reps} reps</strong> → ${item.plan}</div>
+                        </div>
+                      </div>
+                    `;
+                  }
+                  const setsTxt = Array.isArray(item.sets) ? item.sets.join(' / ') : '';
+                  return `
+                    <div class="p-3 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs">
+                      <div>
+                        <span class="font-black text-white">Séance ${item.session}</span>
+                        <span class="text-slate-400 ml-1.5">${item.date} ${item.time ? '• ' + item.time : ''}</span>
+                        <div class="text-slate-300 mt-0.5">
+                          Total : <strong>${item.totalReps} reps</strong> • Max : <strong class="${app.accentText}">${item.maxReps}</strong> (obj. ${item.maxGoal}+)
+                          ${setsTxt ? `<span class="text-slate-400"> • Séries : [${setsTxt}]</span>` : ''}
+                        </div>
+                      </div>
+                      <span class="px-2 py-0.5 rounded-lg text-[11px] font-extrabold ${item.passed ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30' : 'bg-slate-800 text-slate-300'}">
+                        ${item.passed ? 'Objectif OK' : 'À rejouer'}
+                      </span>
+                    </div>
+                  `;
+                }).join('')}
+              </div>`
+          }
+        </section>
+      `;
+    }
+
+    function renderFitnessTestScreen(main, appId) {
+      const app = APPS[appId];
+      const u = db.apps[appId];
+
+      main.innerHTML = `
+        <section class="rounded-3xl bg-[#111827] border border-slate-800 p-6 max-w-xl mx-auto space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-lg text-[11px] font-black border ${app.accentSoft}">${app.rtName}</span>
+            <button onclick="openApp('${app.id}')" class="text-xs font-bold text-slate-400 hover:text-white">← Retour</button>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-black text-white">Fitness Test</h2>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">
+              Fais <strong>1 seule série</strong> au maximum de répétitions propres pour te placer à la bonne séance dans la progression continue.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800/90 text-xs text-slate-300">
+            <span class="font-black ${app.accentText}">💡 Posture :</span> ${app.formCue}
+          </div>
+
+          <div class="space-y-3">
+            <label for="test-max-input" class="block text-xs font-extrabold uppercase tracking-wider text-slate-300">
+              Maximum de répétitions réussies
+            </label>
+            <input id="test-max-input" type="number" min="0" max="500" value="${u.lastTest ? u.lastTest.reps : ''}" placeholder="Ex : 25" class="w-full px-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-700 text-white text-xl font-black focus:outline-none focus:border-white" />
+            <button onclick="saveFitnessTest('${app.id}')" class="w-full py-3.5 px-4 rounded-2xl text-sm font-black bg-gradient-to-r ${app.gradient} text-slate-950 shadow-lg hover:opacity-95 transition">
+              Valider et placer ma séance de départ
+            </button>
+          </div>
+
+          <div class="pt-2 border-t border-slate-800/80 space-y-1.5">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Placement progressif</div>
+            ${app.testThresholds.map(t => `
+              <div class="text-xs text-slate-300 flex justify-between">
+                <span>Jusqu'à ${t.max === 999 ? 'max' : t.max} reps</span>
+                <span class="${app.accentText} font-bold">${t.plan}</span>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderRunnerScreen(main) {
+      const app = APPS[runner.appId];
+      const sessObj = app.sessions.find(s => s.session === runner.sessionNum) || app.sessions[0];
+
+      if (runner.phase === 'summary' && runner.lastResult) {
+        const r = runner.lastResult;
+        const nextSess = Math.min(36, db.apps[app.id].currentSession);
+        const setsSummary = Array.isArray(r.sets) && r.sets.length > 0 ? r.sets.join(' • ') : '';
+        return (main.innerHTML = `
+          <section class="rounded-3xl bg-[#111827] border border-slate-800 p-6 max-w-xl mx-auto text-center space-y-5">
+            <div class="text-4xl">${r.passed ? '🏆' : '💪'}</div>
+            <div>
+              <span class="px-3 py-1 rounded-full text-xs font-black border ${app.accentSoft}">${app.rtName} • Niv. ${sessObj.level} • Séance ${sessObj.session}</span>
+              <h2 class="text-2xl font-black text-white mt-2">Séance Terminée !</h2>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                ${r.leveledUpTo
+                  ? `Passage au Niveau ${r.leveledUpTo} débloqué dans la continuité du programme !`
+                  : r.passed
+                    ? `Objectif de la série Max (${r.maxGoal}+) atteint !`
+                    : `Score Max : ${r.maxReps} (objectif ${r.maxGoal}+). Tu peux rejouer cette séance.`}
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800">
+                <div class="text-2xl font-black text-white">${r.totalReps}</div>
+                <div class="text-xs text-slate-400">Reps totales</div>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800">
+                <div class="text-2xl font-black ${app.accentText}">${r.maxReps}</div>
+                <div class="text-xs text-slate-400">Score série MAX</div>
+              </div>
+            </div>
+            ${setsSummary ? `
+              <div class="p-3 rounded-2xl bg-slate-950/60 border border-slate-800/80 text-xs text-slate-300">
+                Détail par série : <strong class="text-white">${setsSummary}</strong>
+              </div>
+            ` : ''}
+            <div class="flex flex-col sm:flex-row gap-2.5 pt-2">
+              <button onclick="openApp('${app.id}')" class="flex-1 py-3 px-4 rounded-2xl text-xs font-extrabold bg-slate-800 hover:bg-slate-700 text-white transition">
+                Retour au programme
+              </button>
+              <button onclick="startWorkout('${app.id}', ${nextSess})" class="flex-1 py-3 px-4 rounded-2xl text-xs font-black bg-gradient-to-r ${app.gradient} text-slate-950 transition">
+                Séance suivante (${nextSess}) →
+              </button>
+            </div>
+          </section>
+        `);
+      }
+
+      if (runner.phase === 'rest') {
+        const pct = Math.max(0, Math.min(100, (runner.restLeft / runner.restTotal) * 100));
+        const nextIdx = runner.setIndex + 1;
+        const nextLabel = nextIdx === 4 ? `SÉRIE MAX (Obj. ${sessObj.maxGoal}+)` : `Série ${nextIdx + 1} • ${sessObj.sets[nextIdx]} reps`;
+        return (main.innerHTML = `
+          <section class="rounded-3xl bg-[#111827] border border-slate-800 p-6 max-w-xl mx-auto text-center space-y-6">
+            <div class="text-xs font-black uppercase tracking-widest text-slate-400">
+              ${app.rtName} • Niv. ${sessObj.level} • Séance ${sessObj.session} • Repos ${runner.setIndex + 1}/4
+            </div>
+            <div id="rest-countdown" class="text-6xl font-black tabular-nums ${app.accentText}">${runner.restLeft}s</div>
+            <div class="w-full h-3 rounded-full bg-slate-950 overflow-hidden border border-slate-800">
+              <div id="rest-bar" class="h-full bg-gradient-to-r ${app.gradient} transition-all duration-500" style="width:${pct}%"></div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300">
+              À venir : <strong class="text-white">${nextLabel}</strong>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-950/50 border border-slate-800/80 text-left text-xs text-slate-300">
+              <span class="font-black ${app.accentText}">💡 Posture :</span> ${app.formCue}
+            </div>
+            <button onclick="skipRestNow()" class="w-full py-3 px-4 rounded-2xl text-xs font-extrabold bg-slate-800 hover:bg-slate-700 text-white transition">
+              Passer le repos maintenant →
+            </button>
+          </section>
+        `);
+      }
+
+      const isMax = runner.setIndex === 4;
+      const targetText = isMax ? `MAX (Objectif ${sessObj.maxGoal}+)` : `${sessObj.sets[runner.setIndex]} répétitions`;
+      const restSec = getRestSecForApp(app.id);
+
+      main.innerHTML = `
+        <section class="rounded-3xl bg-[#111827] border border-slate-800 p-5 sm:p-6 max-w-xl mx-auto space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-lg text-[11px] font-black border ${app.accentSoft}">
+              Niv. ${sessObj.level} • Séance ${sessObj.session} (Sem. ${sessObj.week} • J${sessObj.dInW})
+            </span>
+            <button onclick="openApp('${app.id}')" class="text-xs font-bold text-slate-400 hover:text-white">Quitter</button>
+          </div>
+
+          <div class="grid grid-cols-5 gap-1.5">
+            ${[0, 1, 2, 3, 4].map(i => {
+              const done = i < runner.completedSetReps.length;
+              const active = i === runner.setIndex;
+              return `<div class="h-2 rounded-full ${done ? app.accentBg : active ? 'bg-white' : 'bg-slate-800'}"></div>`;
+            }).join('')}
+          </div>
+
+          <div class="text-center space-y-1">
+            <div class="text-xs font-extrabold uppercase tracking-widest text-slate-400">
+              ${isMax ? 'Dernière Série • Effort Maximal' : `Série ${runner.setIndex + 1} sur 5`}
+            </div>
+            <div class="text-2xl sm:text-3xl font-black text-white">
+              Cible : <span class="${app.accentText}">${targetText}</span>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 text-xs text-slate-300">
+            <span class="font-black ${app.accentText}">💡 Posture :</span> ${app.formCue}
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between gap-3">
+            <button onclick="adjustRunnerReps(-1)" class="w-14 h-14 rounded-2xl bg-slate-800 hover:bg-slate-700 text-2xl font-black text-white active:scale-95 transition">−</button>
+            <div class="text-center">
+              <div class="text-[11px] uppercase font-bold text-slate-400">Répétitions réalisées</div>
+              <div id="runner-reps-val" class="text-4xl font-black text-white tabular-nums mt-0.5">${runner.repsInput}</div>
+            </div>
+            <button onclick="adjustRunnerReps(1)" class="w-14 h-14 rounded-2xl bg-slate-800 hover:bg-slate-700 text-2xl font-black text-white active:scale-95 transition">+</button>
+          </div>
+
+          <button onclick="completeCurrentSet()" class="w-full py-4 px-5 rounded-2xl text-sm sm:text-base font-black bg-gradient-to-r ${app.gradient} text-slate-950 shadow-xl hover:opacity-95 active:scale-[0.99] transition">
+            ${isMax ? 'Terminer la séance (Valider MAX)' : `Valider Série ${runner.setIndex + 1} • Repos ${restSec}s`}
+          </button>
+        </section>
+      `;
+    }
+
+    loadDB();
+    registerOfflineServiceWorker();
+    render();
+  </script>
+</body>
+</html>
